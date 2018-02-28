@@ -11,7 +11,6 @@
         </style>
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
       
-        <!--<link rel="css/styles" rel="stylesheet" text="text/css" /> -->
     </head>
 
 <!-- This is the body -->
@@ -23,33 +22,73 @@
     <!-- Created a <div> to add the images to -->
     <div class="box">
         <!-- The images used -->
-        <h2>Wonder Woman</h2>
-        <img src="img/wonderWoman.png" alt="Picture of  wonder woman" border="5px" />
-        <br>
-        <br/>
+         
+        <div class="card">
+        <h3>Wonder Woman</h3>
+        <img src="img/wonderWoman.png" alt="Picture of  wonder woman" border="5px" >
+        </div>
         
-        <h2>The Flash</h2>
+        <img id="cards" src="img/cards/clubs/8.png"  width="90">
+        <img id="cards" src="img/cards/clubs/6.png"  width="90" >
+        <img id="cards" src="img/cards/clubs/3.png"  width="90" >
+        <img id="cards" src="img/cards/spades/7.png"  width="90" >
+        <img id="cards" src="img/cards/diamonds/12.png" width="90" >
+        <div class="try" >
+            <h3 id="score">Score</h3> 
+        </div>
+        
+        
+       
+        <div class="card">
+        <h3>The Flash</h3>
         <img src="img/flash.png" alt="Picture of the flash" border="5px" />
+        </div>
         
-        <br>
-        <br/>
-        <h2>Superman</h2>
+        <img id="cards" src="img/cards/clubs/5.png" width="90" >
+        <img id="cards" src="img/cards/diamonds/11.png" width="90" >
+        <img id="cards" src="img/cards/diamonds/10.png" width="90" >
+        <img id="cards" src="img/cards/clubs/9.png" width="90" >
+        <img id="cards" src="img/cards/spades/6.png" width="90" >
+        <!--<br>-->
+        <div class="try" >
+            <h3 id="score">Score</h3>
+        </div>    
+        
+        
+        <div class="card" >
+        <h3>Superman</h3>
         <img src="img/superman.png" alt="Picture of superman" border="5px"/>
+        </div>
         
-        <br>
-        <br/>
-        <h2>Batman </h2>
-        <img id="first" src="img/batman.png" alt="Picture of Batman" border="5px" />
+        <img id="cards" src="img/cards/hearts/7.png" width="90" >
+        <img id="cards" src="img/cards/diamonds/6.png" width="90" >
+        <img id="cards" src="img/cards/hearts/1.png" width="90" >
+        <img id="cards" src="img/cards/hearts/13.png" width="90" >
         
-        <br>
-        <br/>
-         <!-- Creating a <hr> -->
-         <div>
-             <hr width="100%">
-         </div>
+        <div class="try">
+            <h3 id="score">Score</h3>
+        </div>
+       <!-- <br>-->
         
         
-    </div>
+        <div class="card" >
+        <h3>Batman </h3>
+        <img  src="img/batman.png" alt="Picture of Batman" border="5px" />
+        </div>
+        
+        <img id="cards" src="img/cards/clubs/3.png" width="90" >
+        <img id="cards" src="img/cards/hearts/10.png" width="90" >
+        <img id="cards" src="img/cards/diamonds/8.png" width="90" >
+        <img id="cards" src="img/cards/clubs/4.png" width="90" >
+        <img id="cards" src="img/cards/clubs/1.png" width="90" >
+        <img id="cards" src="img/cards/clubs/10.png" width="90" >
+        
+        <div class="try" >
+            <h3 id="score">Score</h3>
+        </div>
+        
+    <!-- </div> -->
+    </div> 
    
     
     
