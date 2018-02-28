@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+    color:gold;
+    font-size: 55px;
+    font-family: 'Comic Sans MS', impact;
+    /*background-color: black;  We can leave this if not we can take it off*/
+    
+}
+
+body, html {
+    background: url(../img/buildings.png) no-repeat center center fixed; 
+    background-size: cover;
+   
+}
+.box {
+    width: 1020px;
+	margin: 0px auto;
+	border-radius: 50px;
+	background: url(../img/blue.png) ;
+	padding: 0px;
+	border-style: solid;
+	border-width: 10px;
+} 
+
+h3 {
+    color:white;
+    font-family: bold;
+}
+
+.card {
+    display: inline;
+    color:black;
+    padding: 0px;
+    
+}
+#score {
+   
+    color:maroon;
+    text-decoration: underline;
+    
+}
+
+.try {
+    text-align: center;
+    padding-left: 200px;
+    font-size: 20px;
+    
+}
+
+
