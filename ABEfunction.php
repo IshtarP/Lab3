@@ -1,43 +1,35 @@
 <?php
 
 
-function displayWinner()
-    {
-        global $names,$players,$score, $winnings,$topscore;
-        $max=0;
-        $winners=0;
-        for($i = 0; $i < count($players); $i++)
-        {
-            if($score[$i]>$max)
-            {
-               $max=$score[$i];
-            }
+function displayWinner($hands,$players) {
+    $scores= array();
+    for($i = 0; $i < 4; $i++) {
+        for($j = 0; $j < count($hands[$i]); $j++) {
+            $score += ($hands[$i][$j] % 13) + 1;
         }
-        for($s=0;$s< count($players); $s++)
-        {
-                if($score[$s]<=42)
-                {
-                if($score[$s]>$topscore)
-                {
-                    $topscore=$score[$s];
-                }
-            }
-        }
-       
-        for($i=0; $i<count($players); $i++)
-        {
-            
-            if($score[$i]==$topscore)
-            {
-                echo "<h1>" . $names[$players[$i]]." Wins ".$winnings=+$score[0]+$score[1]+$score[2]+$score[3]." points!" . "<hr/>";
-                echo "<br/>";
-                $winners++;
-            }
-        }
-           if($winners==0)
-            {
-                echo "<h1> Nobody wins! <hr/>";
-            }
+        
+        array_push($scores,$score);
+        $score = 0;
     }
+    
+    $maxScore = max($scores);
+    $occurences = 0;
+    $index = 0;
+    for($j = 0; $j < 4; $j++) {
+        if($scores[$j] == $maxScore ) {
+            $occurences += 1;
+            $index = $j;
+        }
+    }
+    
+    $outcome = "";
+    if($occurences > 1) {
+        $outcome = "Tie";
+    } else {
+        $outcome = $players[$index]["name"]  . " Wins!";
+    }
+    
+    echo $outcome;
+}
     
 ?>

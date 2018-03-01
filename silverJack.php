@@ -1,4 +1,49 @@
 <!DOCTYPE html>
+
+
+ <?php 
+ include('functions.php');
+ include('ABEfunction.php');
+ 
+ $hands = array();
+ 
+ $players = array(array("name" => "Wonder Woman", "linkToImage" => "img/wonderWoman.png"), 
+                 array("name" => "The Flash", "linkToImage" => "img/flash.png"), 
+                 array("name" => "Superman", "linkToImage" => "img/superman.png"), 
+                 array("name" => "Batman", "linkToImage" => "img/batman.png"));
+                 
+shuffle($players);
+$cards = array();
+
+// add cards to our deck
+for($i = 0; $i < 53; $i++) {
+    array_push($cards,$i);
+}
+
+// so we don't repeat cards
+shuffle($cards);
+$index = 0;
+
+ 
+ // 4 times because we have 4 players
+ for($i = 0; $i < 4; $i++) {
+     
+     // how many cards current player will get
+    $numCards = rand(4,6);
+    $playerHand = array();
+    
+    
+    for($j = 0; $j < $numCards; $j++) {
+        array_push($playerHand,$cards[$index]);
+        $index += 1;
+    }
+    
+    array_push($hands, $playerHand);
+  
+}
+
+?>
+
 <html>
     
 <!-- All styles and javascript go inside the head -->
@@ -21,75 +66,58 @@
     
     <!-- Created a <div> to add the images to -->
     <div class="box">
+        <h1 style="color:red;float:right;"><?php  displayWinner($hands,$players); ?> </h1>
         <!-- The images used -->
          
         <div class="card">
-        <h3>Wonder Woman</h3>
-        <img src="img/wonderWoman.png" alt="Picture of  wonder woman" border="5px" >
-        </div>
-        
-        <img id="cards" src="img/cards/clubs/8.png"  width="85">
-        <img id="cards" src="img/cards/clubs/6.png"  width="85" >
-        <img id="cards" src="img/cards/clubs/3.png"  width="85" >
-        <img id="cards" src="img/cards/spades/7.png"  width="85" >
-        <img id="cards" src="img/cards/diamonds/12.png" width="85" >
-        <div class="try" >
-            <h3 id="score">Score</h3> 
-        </div>
-        
-        
-       
+        <h3> <?php echo $players[0]["name"]; ?> </h3>
+           
+        <img src=<?php echo $players[0]['linkToImage']; ?> alt="Picture of  wonder woman" border="5px" >
+          <?php displayHand($hands[0]); ?>
+          
+         </div>
+  
+          
+     
         <div class="card">
-        <h3>The Flash</h3>
-        <img src="img/flash.png" alt="Picture of the flash" border="5px" />
+        <h3><?php echo $players[1]["name"]; ?></h3>
+        <img src=<?php echo $players[1]['linkToImage']; ?> alt="Picture of the flash" border="5px" />
+            <?php displayHand($hands[1]); ?>
         </div>
-        
-        <img id="cards" src="img/cards/clubs/5.png" width="85" >
-        <img id="cards" src="img/cards/diamonds/11.png" width="85" >
-        <img id="cards" src="img/cards/diamonds/10.png" width="85" >
-        <img id="cards" src="img/cards/clubs/9.png" width="85" >
-        <img id="cards" src="img/cards/spades/6.png" width="85" >
-        <!--<br>-->
-        <div class="try" >
-            <h3 id="score">Score</h3>
-        </div>    
-        
+      
+
+    
         
         <div class="card" >
-        <h3>Superman</h3>
-        <img src="img/superman.png" alt="Picture of superman" border="5px"/>
+        <h3><?php echo $players[2]["name"]; ?></h3>
+        <img src=<?php echo $players[2]['linkToImage']; ?> alt="Picture of superman" border="5px"/>
+            <?php displayHand($hands[2]); ?>
         </div>
         
-        <img id="cards" src="img/cards/hearts/7.png" width="85" >
-        <img id="cards" src="img/cards/diamonds/6.png" width="85" >
-        <img id="cards" src="img/cards/hearts/1.png" width="85" >
-        <img id="cards" src="img/cards/hearts/13.png" width="85" >
         
-        <div class="try">
-            <h3 id="score">Score</h3>
-        </div>
-       <!-- <br>-->
-        
+      
+      
         
         <div class="card" >
-        <h3>Batman </h3>
-        <img  src="img/batman.png" alt="Picture of Batman" border="5px" />
+        <h3><?php echo $players[3]["name"]; ?></h3>
+        <img  src=<?php echo $players[3]['linkToImage']; ?> alt="Picture of Batman" border="5px" />
+            <?php displayHand($hands[3]); ?>
+           
         </div>
+     
+        <br>
         
-        <img id="cards" src="img/cards/clubs/3.png" width="85" >
-        <img id="cards" src="img/cards/hearts/10.png" width="85" >
-        <img id="cards" src="img/cards/diamonds/8.png" width="85" >
-        <img id="cards" src="img/cards/clubs/4.png" width="85" >
-        <img id="cards" src="img/cards/clubs/1.png" width="85" >
-        <img id="cards" src="img/cards/clubs/10.png" width="85" >
-        
-        <div class="try" >
-            <h3 id="score">Score</h3>
+        <div>
+            <hr>
         </div>
+        <!-- Add a <hr> see if it createas a bottom one -->
         
+        <!-- create a <div> tag -->
+       
         <form>
-            <input type="submit" value="Click"/>
+            <input type="submit" value="Play"/>
         </form>
+    
     </div> 
    
     
