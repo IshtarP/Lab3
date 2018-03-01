@@ -175,9 +175,9 @@ function displayElapsedTime(){
     {
     $_SESSION["timesAccessed"] ++;
     }
-    
+    else{
     $_SESSION["timesAccessed"]++; 
-    
+    }
     echo "Average Time Elapsed: " . (($elapsedSecs)/($_SESSION["timesAccessed"]) * pow(10,3))  . " Seconds <br>";
     //Takes time taken to load and divides it by the number of times the page has been accessed.
     
