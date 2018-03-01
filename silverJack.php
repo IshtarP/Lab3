@@ -65,8 +65,14 @@
         <div class="card" >
         <h3><?php echo $players[3]["name"]; ?></h3>
         <img  src=<?php echo $players[3]['linkToImage']; ?> alt="Picture of Batman" border="5px" />
-            <?php displayHand($hands[3],$suits[3]); ?>
-           
+            <?php 
+            displayHand($hands[3],$suits[3]); 
+            ?>
+        <div id = "elapsedTime">    
+            <?php 
+            displayElapsedTime();
+            ?>
+        </div>
         </div>
      
         <br>
@@ -80,7 +86,6 @@
         </form>
     
     </div> 
-   
     
     
 </body>

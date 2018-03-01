@@ -62,3 +62,8 @@ input {
     color:yellow;
     cursor: pointer;
 }
+#elapsedTime{
+    color: maroon;
+    font-size: 25px;
+    text-align: center;
+}

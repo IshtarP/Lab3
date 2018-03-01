@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    $_SESSION["timesAccessed"];
+    $start = microtime(true);
     
     function displayHand($hand, $suit) {
         
@@ -63,7 +66,7 @@
      for($i = 0; $i < 4; $i++) {
          
          // how many cards current player will get
-        $numCards = 8;
+        $numCards = 10;
         $playerHand = array();
         $suitValues = array();
         
@@ -102,15 +105,29 @@ function displayWinner($hands,$players) {
     $maxScore;
     $occurences = 0;
     $index = 0;
-    $indexTie;
+    $indexTie1;
+    $indexTie2;
+    $indexTie3;
     $winnerPoints = 0;
     
     for($j = 0; $j < 4; $j++) {
         
-        if($scores[$j] == $maxScore) {
+        if($scores[$j] == $maxScore && $occurences == 0) {
             
             $occurences++;
-            $indexTie = $j;
+            $indexTie1 = $j;
+        }
+        
+        else if($scores[$j] == $maxScore && $occurences == 1) {
+            
+            $occurences++;
+            $indexTie2 = $j;
+        }
+        
+        else if($scores[$j] == $maxScore && $occurences == 2) {
+            
+            $occurences++;
+            $indexTie3 = $j;
         }
         
        if($scores[$j]<=42 && $scores[$j]>$maxScore)
@@ -129,16 +146,43 @@ function displayWinner($hands,$players) {
     }
         
     $outcome = "";
-    if($occurences >= 1) 
+    if($occurences == 1) 
                     {
-                        $outcome = $players[$index]["name"] . " and " . $players[$indexTie]["name"] . " won! The winners get: " . $winnerPoints . " points!";
+                        $outcome = $players[$index]["name"] . " and " . $players[$indexTie1]["name"] . " won! The winners get: " . $winnerPoints . " points!";
                     } 
+                    else if($occurences == 2) {
+                        $outcome = $players[$index]["name"] . ", " . $players[$indexTie1]["name"] . ", and " . $players[$indexTie2]["name"] . " won! The winners get: " . $winnerPoints . " points!";
+                    }
+                    else if($occurences == 3) {
+                        $outcome = $players[$index]["name"] . ", " . $players[$indexTie1]["name"] . ", " . $players[$indexTie2]["name"] . ", and " . $players[$indexTie3]["name"] . " won! The winners get: " . $winnerPoints . " points!";
+                    }
                     else 
                     {
                         $outcome = $players[$index]["name"]  . " Wins " . $winnerPoints . " points!";
                     }
     
     echo $outcome;
+}
+
+function displayElapsedTime(){
+    global $start;
+    
+    $elapsedSecs = microtime(true) - $start;
+    echo "Elapsed Time: " . ($elapsedSecs * pow ( 10,3)) . " Seconds <br>"; //Gets time the page took to load.
+    
+    
+    if ($_SESSION["timesAccessed"] == null) 
+    {
+    $_SESSION["timesAccessed"] ++;
+    }
+    
+    $_SESSION["timesAccessed"]++; 
+    
+    echo "Average Time Elapsed: " . (($elapsedSecs)/($_SESSION["timesAccessed"]) * pow(10,3))  . " Seconds <br>";
+    //Takes time taken to load and divides it by the number of times the page has been accessed.
+    
+    echo "Total Times Played: " . $_SESSION["timesAccessed"];
+    
 }
 
 ?>
