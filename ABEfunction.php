@@ -22,6 +22,17 @@ function displayWinner($hands,$players) {
         }
     }
     
+    for($s=0;$s< count($players); $s++)
+        {
+                if($score[$s]<=42)
+                {
+                if($score[$s]>$topscore)
+                {
+                    $topscore=$score[$s];
+                }
+            }
+        }
+    
     $outcome = "";
     if($occurences > 1) {
         $outcome = "Tie";
