@@ -76,10 +76,6 @@
         </div>
      
         <br>
-        
-        <!-- Add a <hr> see if it createas a bottom one -->
-        
-        <!-- create a <div> tag -->
        
         <form>
             <input type="submit" value="Play"/>
