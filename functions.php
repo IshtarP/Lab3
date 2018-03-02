@@ -33,13 +33,9 @@
             $points += ($suit[$i] % 13) + 1;
             echo "<img src='./img/cards/$cardSuit/$cardvalue.png' alt=' Card: $cardSuit $cardvalue' />" ;
         }
-        
-        
         echo "<div class=\"try\">
               <h3 id=\"score\">Score: $points</h3>
         </div>";
-        
-        
     }
      
      $hands = array();
